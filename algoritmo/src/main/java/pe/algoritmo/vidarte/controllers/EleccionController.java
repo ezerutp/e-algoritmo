@@ -1,9 +1,8 @@
 package pe.algoritmo.vidarte.controllers;
 
-import java.util.List;
-
 import pe.algoritmo.vidarte.csv.CSV;
 import pe.algoritmo.vidarte.models.Eleccion;
+import pe.algoritmo.vidarte.utils.Lista;
 
 public class EleccionController {
     
@@ -13,12 +12,12 @@ public class EleccionController {
         this.csv = new CSV<>(Eleccion.class);
     }
 
-    public List<Eleccion> getEleccion(){
+    public Lista<Eleccion> getEleccion(){
         return this.csv.leerCSV();
     }
 
     public Eleccion getEleccionById(int id){
-        List<Eleccion> lista = getEleccion();
+        Lista<Eleccion> lista = getEleccion();
         for (Eleccion e : lista){
             if (e.getId() == id) { return e; }
         }

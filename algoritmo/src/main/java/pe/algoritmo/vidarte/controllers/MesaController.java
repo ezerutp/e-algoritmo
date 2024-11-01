@@ -1,9 +1,8 @@
 package pe.algoritmo.vidarte.controllers;
 
-import java.util.List;
-
 import pe.algoritmo.vidarte.csv.CSV;
 import pe.algoritmo.vidarte.models.Mesa;
+import pe.algoritmo.vidarte.utils.Lista;
 
 public class MesaController {
     
@@ -13,12 +12,12 @@ public class MesaController {
         this.csv = new CSV<>(Mesa.class);
     }
 
-    public List<Mesa> getMesa(){
+    public Lista<Mesa> getMesa(){
         return this.csv.leerCSV();
     }
 
     public Mesa getMesaById(int id){
-        List<Mesa> lista  = getMesa();
+        Lista<Mesa> lista  = getMesa();
         for (Mesa m : lista){
             if (m.getId() == id) { return m; }
         }

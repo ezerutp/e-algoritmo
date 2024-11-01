@@ -1,6 +1,8 @@
 package pe.algoritmo.vidarte.utils;
 
-public class Lista<T> {
+import java.util.Iterator;
+
+public class Lista<T> implements Iterable<T>{
     private Nodo<T> head; // Referencia al primer nodo de la lista
 
     // Constructor para inicializar la lista vacía
@@ -46,5 +48,25 @@ public class Lista<T> {
             actual = actual.next;
         }
         System.out.println("null"); // Indica el final de la lista
+    }
+
+    // Implementación de la interfaz Iterable
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            private Nodo<T> actual = head;
+
+            @Override
+            public boolean hasNext() {
+                return actual != null;
+            }
+
+            @Override
+            public T next() {
+                T data = actual.data;
+                actual = actual.next;
+                return data;
+            }
+        };
     }
 }

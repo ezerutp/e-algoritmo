@@ -2,10 +2,8 @@ package pe.algoritmo.vidarte.csv;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
-
 import pe.algoritmo.vidarte.interfaces.CSVUtil;
+import pe.algoritmo.vidarte.utils.Lista;
 
 public class CSV<T extends CSVUtil> {
 
@@ -30,12 +28,12 @@ public class CSV<T extends CSVUtil> {
      * @param filePath La ruta del archivo CSV.
      * @return Una lista de registros leídos.
      */
-    private List<String[]> leerRegistros(String filePath) {
-        List<String[]> registros = new ArrayList<>();
+    private Lista<String[]> leerRegistros(String filePath) {
+        Lista<String[]> registros = new Lista<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String linea;
             while ((linea = br.readLine()) != null) {
-                registros.add(linea.split(CSV_DELIMITER));
+                registros.agregarAlFinal(linea.split(CSV_DELIMITER));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -49,7 +47,7 @@ public class CSV<T extends CSVUtil> {
      * @return El identificador máximo encontrado.
      */
     public int obtenerIdMaximo() {
-        List<T> objetos = leerCSV();
+        Lista<T> objetos = leerCSV();
         int maxId = 0;
         for (T objeto : objetos) {
             if (objeto.getId() > maxId) {
@@ -64,17 +62,17 @@ public class CSV<T extends CSVUtil> {
      * 
      * @return Una lista de objetos leídos del archivo CSV.
      */
-    public List<T> leerCSV() {
-        List<T> objetos = new ArrayList<>();
+    public Lista<T> leerCSV() {
+        Lista<T> objetos = new Lista<>();
         try {
 
-            List<String[]> registros = leerRegistros(fileString);
+            Lista<String[]> registros = leerRegistros(fileString);
 
             for (String[] registro : registros) {
                 T objeto = this.clazz.getDeclaredConstructor().newInstance();
                 // unimos el csv para crear los objetos
                 objeto.fromCSV(String.join(CSV_DELIMITER, registro));
-                objetos.add(objeto);
+                objetos.agregarAlFinal(objeto);
             }
         } catch (InstantiationException | IllegalAccessException | NoSuchMethodException
                 | InvocationTargetException e) {
@@ -92,7 +90,7 @@ public class CSV<T extends CSVUtil> {
     public T leerPorId(int id) {
         try {
             T instancia = this.clazz.getDeclaredConstructor().newInstance();
-            List<String[]> registros = leerRegistros(fileString);
+            Lista<String[]> registros = leerRegistros(fileString);
 
             for (String[] registro : registros) {
                 instancia.fromCSV(String.join(",", registro));
@@ -139,8 +137,8 @@ public class CSV<T extends CSVUtil> {
     public boolean eliminarPorId(int id) {
         try {
             T instancia = this.clazz.getDeclaredConstructor().newInstance();
-            List<String[]> registros = leerRegistros(fileString);
-            List<String[]> nuevosRegistros = new ArrayList<>();
+            Lista<String[]> registros = leerRegistros(fileString);
+            Lista<String[]> nuevosRegistros = new Lista<>();
 
             boolean encontrado = false;
 
@@ -149,7 +147,7 @@ public class CSV<T extends CSVUtil> {
                 if (instancia.getId() == id) {
                     encontrado = true;
                 } else {
-                    nuevosRegistros.add(registro);
+                    nuevosRegistros.agregarAlFinal(registro);
                 }
             }
 
@@ -180,8 +178,8 @@ public class CSV<T extends CSVUtil> {
     public boolean actualizarPorId(int id, T nuevoObjeto) {
         try {
             T instancia = this.clazz.getDeclaredConstructor().newInstance();
-            List<String[]> registros = leerRegistros(fileString);
-            List<String[]> nuevosRegistros = new ArrayList<>();
+            Lista<String[]> registros = leerRegistros(fileString);
+            Lista<String[]> nuevosRegistros = new Lista<>();
 
             boolean encontrado = false;
 
@@ -189,10 +187,10 @@ public class CSV<T extends CSVUtil> {
                 instancia.fromCSV(String.join(",", registro));
                 if (instancia.getId() == id) {
                     // Reemplazar el objeto existente con el nuevo objeto
-                    nuevosRegistros.add(nuevoObjeto.toCSV().split(",")); // Agregar el nuevo registro
+                    nuevosRegistros.agregarAlFinal(nuevoObjeto.toCSV().split(",")); // Agregar el nuevo registro
                     encontrado = true;
                 } else {
-                    nuevosRegistros.add(registro); // Mantener el registro existente sin cambios
+                    nuevosRegistros.agregarAlFinal(registro); // Mantener el registro existente sin cambios
                 }
             }
 
