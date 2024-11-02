@@ -14,7 +14,7 @@ public class Elecciones implements CSVUtil{
     private String mesa;
     private String partido;
     private int numVotos;
-    private final String filepathCSV = System.getProperty("user.dir") + "/Elecciones-algoritmos/src/elecciones/ElecGenEspania2023_v2.csv";
+    private final String filepathCSV = System.getProperty("user.dir") + "/csv/ElecGenEspania2023_v2.csv";
     private static final String CSV_DELIMITER = ";";
 
     public Elecciones() { }
@@ -130,7 +130,7 @@ public class Elecciones implements CSVUtil{
 
     public Distrito gerD(){
         Distrito nDistrito = new Distrito();
-        nDistrito.setIdDistrito(this.distrito);
+        nDistrito.setId(this.distrito);
         nDistrito.setDistrito("Distrito " + this.distrito);
         return nDistrito;
     }
@@ -146,7 +146,7 @@ public class Elecciones implements CSVUtil{
 
     public Eleccion getE(){
         Eleccion nEleccion = new Eleccion();
-        nEleccion.setIdEleccion(0);
+        nEleccion.setId(0);
         nEleccion.setAnio(this.anio);
         nEleccion.setFechaElecciones(this.fechaElecciones);
         nEleccion.setTitulo(this.titulo);

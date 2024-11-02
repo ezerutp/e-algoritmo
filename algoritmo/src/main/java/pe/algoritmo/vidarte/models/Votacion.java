@@ -10,7 +10,7 @@ public class Votacion implements CSVUtil{
     private int idVotacion;
     private Eleccion eleccion; // Asociación con Eleccion
     private Mesa mesa; // Asociación con Mesa
-    private Partido partido;
+    private Partido partido;    
     private int numVotos;
     private final String filepathCSV = System.getProperty("user.dir") + "/Elecciones-algoritmos/src/elecciones/csv_votacion.csv";
     private static final String CSV_DELIMITER = ";";

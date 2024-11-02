@@ -3,7 +3,7 @@ package pe.algoritmo.vidarte.models;
 import pe.algoritmo.vidarte.interfaces.CSVUtil;
 
 public class Eleccion implements CSVUtil{
-    private int idEleccion;
+    private int id;
     private int anio;
     private String titulo;
     private String fechaElecciones;
@@ -13,7 +13,7 @@ public class Eleccion implements CSVUtil{
     public Eleccion(){}
     
     public Eleccion(int idEleccion, int anio, String titulo, String fechaElecciones) {
-        this.idEleccion = idEleccion;
+        this.id = idEleccion;
         this.anio = anio;
         this.titulo = titulo;
         this.fechaElecciones = fechaElecciones;
@@ -21,11 +21,11 @@ public class Eleccion implements CSVUtil{
 
     @Override
     public int getId() {
-        return this.idEleccion;
+        return this.id;
     }
 
-    public void setIdEleccion(int idEleccion) {
-        this.idEleccion = idEleccion;
+    public void setId(int idEleccion) {
+        this.id = idEleccion;
     }
 
     public int getAnio() {
@@ -61,7 +61,7 @@ public class Eleccion implements CSVUtil{
     public void fromCSV(String csv){
         try {
             String[] data = csv.split(CSV_DELIMITER);
-            this.idEleccion = Integer.parseInt(data[0]);
+            this.id = Integer.parseInt(data[0]);
             this.anio = Integer.parseInt(data[1]);
             this.titulo = data[2];
             this.fechaElecciones = data[3];
