@@ -12,12 +12,12 @@ public class MesaController {
         this.csv = new CSV<>(Mesa.class);
     }
 
-    public Lista<Mesa> getMesa(){
+    public Lista<Mesa> getMesas(){
         return this.csv.leerCSV();
     }
 
     public Mesa getMesaById(int id){
-        Lista<Mesa> lista  = getMesa();
+        Lista<Mesa> lista  = getMesas();
         for (Mesa m : lista){
             if (m.getId() == id) { return m; }
         }

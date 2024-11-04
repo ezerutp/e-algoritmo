@@ -14,8 +14,12 @@
     </properties>
 
     <dependencies>
-    <!-- Apache Commons Lang for ToStringBuilder functionality -->
-        
+        <!-- Apache Commons Lang for ToStringBuilder functionality -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
     </dependencies>
 
 </project>

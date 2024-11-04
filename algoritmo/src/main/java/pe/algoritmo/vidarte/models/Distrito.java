@@ -4,15 +4,15 @@ import pe.algoritmo.vidarte.interfaces.CSVUtil;
 
 public class Distrito implements CSVUtil{
     private int id;
-    private String distrito;
-    private final String filepathCSV = System.getProperty("user.dir") + "/Elecciones-algoritmos/src/elecciones/csv_distritos.csv";
+    private String nombre;
+    private final String filepathCSV = System.getProperty("user.dir") + "/csv/csv_distritos.csv";
     private static final String CSV_DELIMITER = ";";
 
     public Distrito(){}
 
     public Distrito(int idDistrito, String distrito) {
         this.id = idDistrito;
-        this.distrito = distrito;
+        this.nombre = distrito;
     }
 
     @Override
@@ -24,12 +24,12 @@ public class Distrito implements CSVUtil{
         this.id = idDistrito;
     }
 
-    public String getDistrito() {
-        return this.distrito;
+    public String getNombre() {
+        return this.nombre;
     }
 
-    public void setDistrito(String distrito) {
-        this.distrito = distrito;
+    public void setNombre(String distrito) {
+        this.nombre = distrito;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Distrito implements CSVUtil{
         try {
             String[] data = csv.split(CSV_DELIMITER);
             this.id = Integer.parseInt(data[0]);
-            this.distrito = data[1];
+            this.nombre = data[1];
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,7 +57,7 @@ public class Distrito implements CSVUtil{
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", distrito='" + getDistrito() + "'" +
+            ", distrito='" + getNombre() + "'" +
             "}";
     }
 

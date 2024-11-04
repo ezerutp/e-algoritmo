@@ -7,7 +7,7 @@ public class Eleccion implements CSVUtil{
     private int anio;
     private String titulo;
     private String fechaElecciones;
-    private final String filepathCSV = System.getProperty("user.dir") + "/Elecciones-algoritmos/src/elecciones/csv_eleccion.csv";
+    private final String filepathCSV = System.getProperty("user.dir") + "/csv/csv_eleccion.csv";
     private static final String CSV_DELIMITER = ";";
 
     public Eleccion(){}

@@ -12,12 +12,12 @@ public class EleccionController {
         this.csv = new CSV<>(Eleccion.class);
     }
 
-    public Lista<Eleccion> getEleccion(){
+    public Lista<Eleccion> getElecciones(){
         return this.csv.leerCSV();
     }
 
     public Eleccion getEleccionById(int id){
-        Lista<Eleccion> lista = getEleccion();
+        Lista<Eleccion> lista = getElecciones();
         for (Eleccion e : lista){
             if (e.getId() == id) { return e; }
         }

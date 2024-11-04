@@ -4,29 +4,29 @@ import pe.algoritmo.vidarte.controllers.DistritoController;
 import pe.algoritmo.vidarte.interfaces.CSVUtil;
 
 public class Mesa implements CSVUtil{
-    private int idMesa;
+    private int id;
     private Distrito distrito; // Asociación con Distrito
     private int seccion;
-    private String mesa;
-    private final String filepathCSV = System.getProperty("user.dir") + "/Elecciones-algoritmos/src/elecciones/csv_mesas.csv";
+    private String tipoMesa;
+    private final String filepathCSV = System.getProperty("user.dir") + "/csv/csv_mesas.csv";
     private static final String CSV_DELIMITER = ";";
 
     public Mesa(){}
 
-    public Mesa(int idMesa, Distrito distrito, int seccion, String mesa) {
-        this.idMesa = idMesa;
+    public Mesa(int idMesa, Distrito distrito, int seccion, String tipomesa) {
+        this.id = idMesa;
         this.distrito = distrito;
         this.seccion = seccion;
-        this.mesa = mesa;
+        this.tipoMesa = tipomesa;
     }
 
     @Override
     public int getId() {
-        return this.idMesa;
+        return this.id;
     }
 
-    public void setIdMesa(int idMesa) {
-        this.idMesa = idMesa;
+    public void setId(int idMesa) {
+        this.id = idMesa;
     }
 
     public Distrito getDistrito() {
@@ -45,12 +45,12 @@ public class Mesa implements CSVUtil{
         this.seccion = seccion;
     }
 
-    public String getMesa() {
-        return this.mesa;
+    public String getTipoMesa() {
+        return this.tipoMesa;
     }
 
-    public void setMesa(String mesa) {
-        this.mesa = mesa;
+    public void setTipoMesa(String mesa) {
+        this.tipoMesa = mesa;
     }
 
     @Override
@@ -62,13 +62,13 @@ public class Mesa implements CSVUtil{
     public void fromCSV(String csv){
         try {
             String[] data = csv.split(CSV_DELIMITER);
-            this.idMesa = Integer.parseInt(data[0]);
+            this.id = Integer.parseInt(data[0]);
             //bloque para distrito
             DistritoController c_distrito = new DistritoController();
             this.distrito = c_distrito.getDistritoById(Integer.parseInt(data[1]));
             //fin
             this.seccion = Integer.parseInt(data[2]);
-            this.mesa = data[3];
+            this.tipoMesa = data[3];
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -85,7 +85,7 @@ public class Mesa implements CSVUtil{
             " idMesa='" + getId() + "'" +
             ", distrito='" + getDistrito() + "'" +
             ", seccion='" + getSeccion() + "'" +
-            ", mesa='" + getMesa() + "'" +
+            ", mesa='" + getTipoMesa() + "'" +
             "}";
     }
 

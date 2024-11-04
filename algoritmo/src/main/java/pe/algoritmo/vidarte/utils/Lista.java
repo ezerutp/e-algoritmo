@@ -4,10 +4,12 @@ import java.util.Iterator;
 
 public class Lista<T> implements Iterable<T>{
     private Nodo<T> head; // Referencia al primer nodo de la lista
+    private int length;
 
     // Constructor para inicializar la lista vacía
     public Lista() {
         this.head = null;
+        this.length = 0;
     }
 
     // Método para agregar un nodo al inicio de la lista
@@ -15,6 +17,7 @@ public class Lista<T> implements Iterable<T>{
         Nodo<T> nuevoNodo = new Nodo<>(data);
         nuevoNodo.next = head;
         head = nuevoNodo;
+        length++;
     }
 
     // Método para agregar un nodo al final de la lista
@@ -29,12 +32,14 @@ public class Lista<T> implements Iterable<T>{
             }
             actual.next = nuevoNodo;
         }
+        length++;
     }
 
     // Método para eliminar el primer nodo de la lista
     public void eliminarAlInicio() {
         if (head != null) {
             head = head.next;
+            length--;
         } else {
             System.out.println("La lista está vacía");
         }
@@ -48,6 +53,10 @@ public class Lista<T> implements Iterable<T>{
             actual = actual.next;
         }
         System.out.println("null"); // Indica el final de la lista
+    }
+
+    public int size() {
+        return length;
     }
 
     // Implementación de la interfaz Iterable

@@ -3,36 +3,32 @@ package pe.algoritmo.vidarte.models;
 import pe.algoritmo.vidarte.controllers.EleccionController;
 import pe.algoritmo.vidarte.controllers.MesaController;
 import pe.algoritmo.vidarte.interfaces.CSVUtil;
-import pe.algoritmo.vidarte.utils.Utilidades;
-import pe.algoritmo.vidarte.utils.Utilidades.Partido;
 
 public class Votacion implements CSVUtil{
-    private int idVotacion;
+    private int id;
     private Eleccion eleccion; // Asociación con Eleccion
     private Mesa mesa; // Asociación con Mesa
-    private Partido partido;    
-    private int numVotos;
-    private final String filepathCSV = System.getProperty("user.dir") + "/Elecciones-algoritmos/src/elecciones/csv_votacion.csv";
+    private EleccionResultado resultado;
+    private final String filepathCSV = System.getProperty("user.dir") + "/csv/csv_votacion.csv";
     private static final String CSV_DELIMITER = ";";
 
     public Votacion(){}
 
     //Constructor para partidos
-    public Votacion(int idVotacion, Eleccion eleccion, Mesa mesa, Partido partido, int numVotos) {
-        this.idVotacion = idVotacion;
+    public Votacion(int idVotacion, Eleccion eleccion, Mesa mesa, EleccionResultado resultado) {
+        this.id = idVotacion;
         this.eleccion = eleccion;
         this.mesa = mesa;
-        this.partido = partido;
-        this.numVotos = numVotos;
+        this.resultado = resultado;
     }
 
     @Override
     public int getId() {
-        return this.idVotacion;
+        return this.id;
     }
 
     public void setId(int idVotacion) {
-        this.idVotacion = idVotacion;
+        this.id = idVotacion;
     }
 
     public Eleccion getEleccion() {
@@ -51,20 +47,16 @@ public class Votacion implements CSVUtil{
         this.mesa = mesa;
     }
 
-    public Partido getPartido() {
-        return this.partido;
+    public EleccionResultado getResultado() {
+        return this.resultado;
     }
 
-    public void setPartido(Partido partido) {
-        this.partido = partido;
+    public void setResultado(EleccionResultado resultado) {
+        this.resultado = resultado;
     }
 
-    public int getNumVotos() {
-        return this.numVotos;
-    }
-
-    public void setNumVotos(int numVotos) {
-        this.numVotos = numVotos;
+    public String getFilepathCSV() {
+        return this.filepathCSV;
     }
 
     @Override
@@ -76,7 +68,7 @@ public class Votacion implements CSVUtil{
     public void fromCSV(String csv){
         try {
             String[] data = csv.split(CSV_DELIMITER);
-            this.idVotacion = Integer.parseInt(data[0]);
+            this.id = Integer.parseInt(data[0]);
             //bloque para eleccion
             EleccionController c_eleccion = new EleccionController();
             this.eleccion = c_eleccion.getEleccionById(Integer.parseInt(data[1]));
@@ -84,8 +76,7 @@ public class Votacion implements CSVUtil{
             MesaController c_mesa = new MesaController();
             this.mesa = c_mesa.getMesaById(Integer.parseInt(data[2]));
             //fin
-            this.partido = Utilidades.tipoPartido(data[3]);
-            this.numVotos = Integer.parseInt(data[4]);
+            this.resultado = new EleccionResultado(data);            
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -102,8 +93,6 @@ public class Votacion implements CSVUtil{
             " idVotacion='" + getId() + "'" +
             ", eleccion='" + getEleccion() + "'" +
             ", mesa='" + getMesa() + "'" +
-            ", partido='" + getPartido() + "'" +
-            ", numVotos='" + getNumVotos() + "'" +
             "}";
     }
 
