@@ -1,7 +1,11 @@
 package pe.algoritmo.vidarte.models;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import pe.algoritmo.vidarte.controllers.DistritoController;
 import pe.algoritmo.vidarte.interfaces.CSVUtil;
+import pe.algoritmo.vidarte.utils.Utilidades;
 
 public class Mesa implements CSVUtil{
     private int id;
@@ -76,17 +80,17 @@ public class Mesa implements CSVUtil{
 
     @Override
     public String toCSV(){
-        return null;
+        return Utilidades.toCSV(this);
     }
 
     @Override
     public String toString() {
-        return "{" +
-            " idMesa='" + getId() + "'" +
-            ", distrito='" + getDistrito() + "'" +
-            ", seccion='" + getSeccion() + "'" +
-            ", mesa='" + getTipoMesa() + "'" +
-            "}";
+        return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
+            .append("id", id)
+            .append("distrito", distrito)
+            .append("seccion", seccion)
+            .append("tipoMesa", tipoMesa)
+            .toString();
     }
 
 }

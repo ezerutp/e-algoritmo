@@ -12,6 +12,12 @@ public class MesaController {
         this.csv = new CSV<>(Mesa.class);
     }
 
+    public boolean registrar(Mesa m){
+        int id = this.csv.obtenerIdMaximo() + 1;
+        m.setId(id);
+        return this.csv.registrar(m);
+    }
+
     public Lista<Mesa> getMesas(){
         return this.csv.leerCSV();
     }
@@ -22,5 +28,13 @@ public class MesaController {
             if (m.getId() == id) { return m; }
         }
         return null;
+    }
+
+    public boolean eliminarById(int id){
+        return this.csv.eliminarPorId(id);
+    }
+
+    public boolean actualizarById(int id, Mesa m){
+        return this.csv.actualizarPorId(id, m);
     }
 }

@@ -1,8 +1,12 @@
 package pe.algoritmo.vidarte.models;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import pe.algoritmo.vidarte.controllers.EleccionController;
 import pe.algoritmo.vidarte.controllers.MesaController;
 import pe.algoritmo.vidarte.interfaces.CSVUtil;
+import pe.algoritmo.vidarte.utils.Utilidades;
 
 public class Votacion implements CSVUtil{
     private int id;
@@ -84,16 +88,17 @@ public class Votacion implements CSVUtil{
 
     @Override
     public String toCSV(){
-        return null;
+        return Utilidades.toCSV(this);
     }
 
     @Override
     public String toString() {
-        return "{" +
-            " idVotacion='" + getId() + "'" +
-            ", eleccion='" + getEleccion() + "'" +
-            ", mesa='" + getMesa() + "'" +
-            "}";
+        return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
+            .append("id", id)
+            .append("eleccion", eleccion)
+            .append("mesa", mesa) 
+            .append("resultado", resultado)
+            .toString();
     }
 
 }

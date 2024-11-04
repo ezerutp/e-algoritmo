@@ -12,6 +12,12 @@ public class EleccionController {
         this.csv = new CSV<>(Eleccion.class);
     }
 
+    public boolean registrar(Eleccion e){
+        int id = this.csv.obtenerIdMaximo() + 1;
+        e.setId(id);
+        return this.csv.registrar(e);
+    }
+
     public Lista<Eleccion> getElecciones(){
         return this.csv.leerCSV();
     }
@@ -22,5 +28,13 @@ public class EleccionController {
             if (e.getId() == id) { return e; }
         }
         return null;
+    }
+
+    public boolean eliminarById(int id){
+        return this.csv.eliminarPorId(id);
+    }
+
+    public boolean actualizarById(int id, Eleccion e){
+        return this.csv.actualizarPorId(id, e);
     }
 }

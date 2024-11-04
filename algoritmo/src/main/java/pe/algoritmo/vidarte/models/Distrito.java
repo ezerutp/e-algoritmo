@@ -1,6 +1,10 @@
 package pe.algoritmo.vidarte.models;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import pe.algoritmo.vidarte.interfaces.CSVUtil;
+import pe.algoritmo.vidarte.utils.Utilidades;
 
 public class Distrito implements CSVUtil{
     private int id;
@@ -50,15 +54,14 @@ public class Distrito implements CSVUtil{
 
     @Override
     public String toCSV(){
-        return null;
+        return Utilidades.toCSV(this);
     }
     
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", distrito='" + getNombre() + "'" +
-            "}";
+        return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
+            .append("id", id)
+            .append("nombre", nombre)
+            .toString();
     }
-
 }

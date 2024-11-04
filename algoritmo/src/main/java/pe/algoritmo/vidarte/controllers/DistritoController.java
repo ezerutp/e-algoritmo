@@ -12,6 +12,12 @@ public class DistritoController {
         this.csv = new CSV<>(Distrito.class);
     }
 
+    public boolean registrar(Distrito d){
+        int id = this.csv.obtenerIdMaximo() + 1;
+        d.setId(id);
+        return this.csv.registrar(d);
+    }
+
     public Lista<Distrito> getDistritos(){
         return this.csv.leerCSV();
     }
@@ -22,6 +28,14 @@ public class DistritoController {
             if (d.getId() == id) { return d; }
         }
         return null;
+    }
+
+    public boolean eliminarById(int id){
+        return this.csv.eliminarPorId(id);
+    }
+
+    public boolean actualizarById(int id, Distrito d){
+        return this.csv.actualizarPorId(id, d);
     }
     
 }
