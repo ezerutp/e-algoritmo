@@ -1,5 +1,6 @@
 package pe.algoritmo.vidarte.controllers;
 
+import pe.algoritmo.vidarte.cache.VotacionCache;
 import pe.algoritmo.vidarte.csv.CSV;
 import pe.algoritmo.vidarte.models.Votacion;
 import pe.algoritmo.vidarte.utils.Lista;
@@ -19,7 +20,7 @@ public class VotacionController {
     }
 
     public Lista<Votacion> getVotaciones(){
-        return this.csv.leerCSV();
+        return VotacionCache.getInstance().getVotaciones();
     }
 
     public Votacion getVotacionById(int id){

@@ -13,6 +13,6 @@ public class Main {
         for (Votacion v : lista) {
             System.out.println(v.toCSV());
         }
-
+    
     }
 }

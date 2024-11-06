@@ -1,5 +1,6 @@
 package pe.algoritmo.vidarte.controllers;
 
+import pe.algoritmo.vidarte.cache.MesaCache;
 import pe.algoritmo.vidarte.csv.CSV;
 import pe.algoritmo.vidarte.models.Mesa;
 import pe.algoritmo.vidarte.utils.Lista;
@@ -12,29 +13,36 @@ public class MesaController {
         this.csv = new CSV<>(Mesa.class);
     }
 
-    public boolean registrar(Mesa m){
-        int id = this.csv.obtenerIdMaximo() + 1;
-        m.setId(id);
-        return this.csv.registrar(m);
+    public Lista<Mesa> getMesas(){
+        return MesaCache.getInstance().getMesas();
     }
 
-    public Lista<Mesa> getMesas(){
-        return this.csv.leerCSV();
+    public boolean registrar(Mesa m){
+        m.setId(MesaCache.getInstance().nextIndex());
+        if (this.csv.registrar(m)){
+            MesaCache.getInstance().registrar(m.getId(), m);
+            return true;
+        }
+        return false;
     }
 
     public Mesa getMesaById(int id){
-        Lista<Mesa> lista  = getMesas();
-        for (Mesa m : lista){
-            if (m.getId() == id) { return m; }
-        }
-        return null;
+        return MesaCache.getInstance().getMesa(id);
     }
 
     public boolean eliminarById(int id){
-        return this.csv.eliminarPorId(id);
+        if (this.csv.eliminarPorId(id)){
+            MesaCache.getInstance().eliminar(id);
+            return true;
+        }
+        return false;
     }
 
     public boolean actualizarById(int id, Mesa m){
-        return this.csv.actualizarPorId(id, m);
+        if (this.csv.actualizarPorId(id, m)){
+            MesaCache.getInstance().actualizar(id, m);
+            return true;
+        }
+        return false;
     }
 }

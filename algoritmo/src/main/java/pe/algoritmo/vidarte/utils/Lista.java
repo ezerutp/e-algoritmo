@@ -59,6 +59,19 @@ public class Lista<T> implements Iterable<T>{
         return length;
     }
 
+    // sospechoso XD
+    public T get(int index) {
+        if (index < 0 || index >= length) {
+            throw new IndexOutOfBoundsException("Índice " + index + " está fuera de los límites");
+        }
+        
+        Nodo<T> actual = head;
+        for (int i = 0; i < index; i++) {
+            actual = actual.next;
+        }
+        return actual.data;
+    }
+
     // Implementación de la interfaz Iterable
     @Override
     public Iterator<T> iterator() {

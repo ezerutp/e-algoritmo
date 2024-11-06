@@ -6,12 +6,15 @@ pe\algoritmo\vidarte\controllers\EleccionController.class
 pe\algoritmo\vidarte\utils\Nodo.class
 pe\algoritmo\vidarte\models\Eleccion.class
 pe\algoritmo\vidarte\csv\NewCSV.class
+pe\algoritmo\vidarte\cache\VotacionCache.class
 pe\algoritmo\vidarte\utils\Lista.class
 pe\algoritmo\vidarte\csv\CSV.class
 pe\algoritmo\vidarte\utils\Lista$1.class
 pe\algoritmo\vidarte\controllers\DistritoController.class
 pe\algoritmo\vidarte\models\EleccionResultado.class
+pe\algoritmo\vidarte\cache\MesaCache.class
 pe\algoritmo\vidarte\models\Mesa.class
 pe\algoritmo\vidarte\controllers\VotacionController.class
 pe\algoritmo\vidarte\models\Votacion.class
+pe\algoritmo\vidarte\tables\DistritoTableModel.class
 pe\algoritmo\vidarte\utils\Utilidades.class
