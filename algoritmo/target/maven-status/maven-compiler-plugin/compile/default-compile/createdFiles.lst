@@ -1,8 +1,10 @@
 pe\algoritmo\vidarte\Main.class
 pe\algoritmo\vidarte\models\Distrito.class
+pe\algoritmo\vidarte\tables\MesaTableModel.class
 pe\algoritmo\vidarte\interfaces\CSVUtil.class
 pe\algoritmo\vidarte\controllers\MesaController.class
 pe\algoritmo\vidarte\controllers\EleccionController.class
+pe\algoritmo\vidarte\tables\EleccionTableModel.class
 pe\algoritmo\vidarte\utils\Nodo.class
 pe\algoritmo\vidarte\models\Eleccion.class
 pe\algoritmo\vidarte\csv\NewCSV.class
@@ -14,6 +16,7 @@ pe\algoritmo\vidarte\controllers\DistritoController.class
 pe\algoritmo\vidarte\models\EleccionResultado.class
 pe\algoritmo\vidarte\cache\MesaCache.class
 pe\algoritmo\vidarte\models\Mesa.class
+pe\algoritmo\vidarte\tables\VotacionTableModel.class
 pe\algoritmo\vidarte\controllers\VotacionController.class
 pe\algoritmo\vidarte\models\Votacion.class
 pe\algoritmo\vidarte\tables\DistritoTableModel.class

@@ -6,7 +6,7 @@ import pe.algoritmo.vidarte.models.Distrito;
 
 public class DistritoTableModel extends AbstractTableModel {
     private Lista<Distrito> modelo;
-    private String[] columStrings = {"id", "nombre"};
+    private String[] columStrings = {"Nombre"};
 
     public DistritoTableModel(Lista<Distrito> lista){
         this.modelo = lista;
