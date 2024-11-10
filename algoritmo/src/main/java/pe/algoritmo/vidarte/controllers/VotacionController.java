@@ -3,7 +3,7 @@ package pe.algoritmo.vidarte.controllers;
 import pe.algoritmo.vidarte.cache.VotacionCache;
 import pe.algoritmo.vidarte.csv.CSV;
 import pe.algoritmo.vidarte.models.Votacion;
-import pe.algoritmo.vidarte.utils.Lista;
+import pe.algoritmo.vidarte.utils.Lista.Lista;
 
 public class VotacionController {
     

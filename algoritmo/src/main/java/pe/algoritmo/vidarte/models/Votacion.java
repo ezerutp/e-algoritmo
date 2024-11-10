@@ -13,7 +13,7 @@ public class Votacion implements CSVUtil{
     private Eleccion eleccion; // Asociación con Eleccion
     private Mesa mesa; // Asociación con Mesa
     private EleccionResultado resultado;
-    private final String filepathCSV = System.getProperty("user.dir") + "/csv/csv_votacion.csv";
+    //private final String filepathCSV = System.getProperty("user.dir") + "/csv/csv_votacion.csv";
     private static final String CSV_DELIMITER = ";";
 
     public Votacion(){}
@@ -59,13 +59,9 @@ public class Votacion implements CSVUtil{
         this.resultado = resultado;
     }
 
-    public String getFilepathCSV() {
-        return this.filepathCSV;
-    }
-
     @Override
-    public String getFilePath(){
-        return filepathCSV;
+    public String getModelName(){
+        return "votacion";
     }
 
     @Override

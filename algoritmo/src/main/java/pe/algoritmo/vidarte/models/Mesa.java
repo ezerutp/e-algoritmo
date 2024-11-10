@@ -12,7 +12,7 @@ public class Mesa implements CSVUtil{
     private Distrito distrito; // Asociación con Distrito
     private int seccion;
     private String tipoMesa;
-    private final String filepathCSV = System.getProperty("user.dir") + "/csv/csv_mesas.csv";
+    //private final String filepathCSV = System.getProperty("user.dir") + "/csv/csv_mesas.csv";
     private static final String CSV_DELIMITER = ";";
 
     public Mesa(){}
@@ -58,8 +58,8 @@ public class Mesa implements CSVUtil{
     }
 
     @Override
-    public String getFilePath() {
-        return this.filepathCSV;
+    public String getModelName() {
+        return "mesa";
     }
 
     @Override

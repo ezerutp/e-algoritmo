@@ -1,21 +1,19 @@
 package pe.algoritmo.vidarte.cache;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import pe.algoritmo.vidarte.csv.CSV;
 import pe.algoritmo.vidarte.models.Mesa;
-import pe.algoritmo.vidarte.utils.Lista;
+import pe.algoritmo.vidarte.utils.Diccionario.Diccionario;
+import pe.algoritmo.vidarte.utils.Lista.Lista;
 
 public class MesaCache {
     private static MesaCache instance;
-    private Map<Integer, Mesa> mesasCache;
+    private Diccionario<Integer, Mesa> mesasCache;
     private Lista<Mesa> mesas;
     private CSV<Mesa> csv;
     private int idMax;
     
     private MesaCache() {
-        mesasCache = new HashMap<>();
+        mesasCache = new Diccionario<>();
         csv = new CSV<>(Mesa.class);
         mesas = this.csv.leerCSV();
         for (Mesa mesa : mesas) {
@@ -35,7 +33,7 @@ public class MesaCache {
         return idMax + 1;
     }
 
-    public Map<Integer, Mesa> mesas(){
+    public Diccionario<Integer, Mesa> mesas(){
         return mesasCache;
     }
 

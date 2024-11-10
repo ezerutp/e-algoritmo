@@ -3,7 +3,7 @@ package pe.algoritmo.vidarte.controllers;
 import pe.algoritmo.vidarte.cache.MesaCache;
 import pe.algoritmo.vidarte.csv.CSV;
 import pe.algoritmo.vidarte.models.Mesa;
-import pe.algoritmo.vidarte.utils.Lista;
+import pe.algoritmo.vidarte.utils.Lista.Lista;
 
 public class MesaController {
     

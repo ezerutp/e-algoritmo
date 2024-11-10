@@ -1,8 +1,9 @@
 package pe.algoritmo.vidarte.tables;
 
 import javax.swing.table.AbstractTableModel;
-import pe.algoritmo.vidarte.utils.Lista;
+
 import pe.algoritmo.vidarte.models.Eleccion;
+import pe.algoritmo.vidarte.utils.Lista.Lista;
 
 public class EleccionTableModel extends AbstractTableModel{
     Lista<Eleccion> modelo;

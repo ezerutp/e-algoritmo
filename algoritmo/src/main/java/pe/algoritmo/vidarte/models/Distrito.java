@@ -9,7 +9,7 @@ import pe.algoritmo.vidarte.utils.Utilidades;
 public class Distrito implements CSVUtil{
     private int id;
     private String nombre;
-    private final String filepathCSV = System.getProperty("user.dir") + "/csv/csv_distritos.csv";
+    //private final String filepathCSV = System.getProperty("user.dir") + "/csv/csv_distritos.csv";
     private static final String CSV_DELIMITER = ";";
 
     public Distrito(){}
@@ -37,8 +37,8 @@ public class Distrito implements CSVUtil{
     }
 
     @Override
-    public String getFilePath() {
-        return this.filepathCSV;
+    public String getModelName() {
+        return "distrito";
     }
 
     @Override

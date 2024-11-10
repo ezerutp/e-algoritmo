@@ -2,7 +2,7 @@ package pe.algoritmo.vidarte.controllers;
 
 import pe.algoritmo.vidarte.csv.CSV;
 import pe.algoritmo.vidarte.models.Distrito;
-import pe.algoritmo.vidarte.utils.Lista;
+import pe.algoritmo.vidarte.utils.Lista.Lista;
 
 public class DistritoController {
     

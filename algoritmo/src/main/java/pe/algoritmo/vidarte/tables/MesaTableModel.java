@@ -1,8 +1,9 @@
 package pe.algoritmo.vidarte.tables;
 
 import javax.swing.table.AbstractTableModel;
-import pe.algoritmo.vidarte.utils.Lista;
+
 import pe.algoritmo.vidarte.models.Mesa;
+import pe.algoritmo.vidarte.utils.Lista.Lista;
 
 public class MesaTableModel extends AbstractTableModel{
     private Lista<Mesa> modelo;

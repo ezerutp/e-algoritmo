@@ -1,22 +1,20 @@
 package pe.algoritmo.vidarte.cache;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import pe.algoritmo.vidarte.csv.CSV;
 import pe.algoritmo.vidarte.models.Votacion;
-import pe.algoritmo.vidarte.utils.Lista;
+import pe.algoritmo.vidarte.utils.Diccionario.Diccionario;
+import pe.algoritmo.vidarte.utils.Lista.Lista;
 
 public class VotacionCache {
     
     private static VotacionCache instance;
-    private Map<Integer, Votacion> votacionCache;
+    private Diccionario<Integer, Votacion> votacionCache;
     private Lista<Votacion> votaciones;
     private CSV<Votacion> csv;
     private int idMax;
 
     private VotacionCache(){
-        votacionCache = new HashMap<>();
+        votacionCache = new Diccionario<>();
         csv = new CSV<>(Votacion.class);
         votaciones = csv.leerCSV();
         for (Votacion v : votaciones){
@@ -36,7 +34,7 @@ public class VotacionCache {
         return idMax + 1;
     }
 
-    public Map<Integer, Votacion> votaciones(){
+    public Diccionario<Integer, Votacion> votaciones(){
         return votacionCache;
     }
 

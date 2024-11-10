@@ -3,7 +3,7 @@ package pe.algoritmo.vidarte.csv;
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import pe.algoritmo.vidarte.interfaces.CSVUtil;
-import pe.algoritmo.vidarte.utils.Lista;
+import pe.algoritmo.vidarte.utils.Lista.Lista;
 
 public class CSV<T extends CSVUtil> {
 
@@ -16,7 +16,7 @@ public class CSV<T extends CSVUtil> {
         try {
             this.clazz = clazz;
             T instancia = clazz.getDeclaredConstructor().newInstance();
-            this.fileString = instancia.getFilePath();
+            this.fileString = CSVConfig.getInstance().getRutaModel(instancia.getModelName());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -113,7 +113,7 @@ public class CSV<T extends CSVUtil> {
      */
     public boolean registrar(T objeto) {
 
-        try (FileWriter fw = new FileWriter(objeto.getFilePath(), true);
+        try (FileWriter fw = new FileWriter(this.fileString, true);
                 BufferedWriter bw = new BufferedWriter(fw)) {
 
             String nuevaLinea = objeto.toCSV();
@@ -153,7 +153,7 @@ public class CSV<T extends CSVUtil> {
 
             if (encontrado) {
                 // Actualizar el archivo CSV con los registros restantes
-                try (BufferedWriter bw = new BufferedWriter(new FileWriter(instancia.getFilePath()))) {
+                try (BufferedWriter bw = new BufferedWriter(new FileWriter(this.fileString))) {
                     for (String[] nuevoRegistro : nuevosRegistros) {
                         bw.write(String.join(",", nuevoRegistro));
                         bw.newLine();
@@ -196,7 +196,7 @@ public class CSV<T extends CSVUtil> {
 
             if (encontrado) {
                 // Actualizar el archivo CSV con los registros actualizados
-                try (BufferedWriter bw = new BufferedWriter(new FileWriter(instancia.getFilePath()))) {
+                try (BufferedWriter bw = new BufferedWriter(new FileWriter(this.fileString))) {
                     for (String[] nuevoRegistro : nuevosRegistros) {
                         bw.write(String.join(",", nuevoRegistro));
                         bw.newLine();
