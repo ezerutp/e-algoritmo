@@ -3,8 +3,6 @@ package pe.algoritmo.vidarte.csv;
 import java.io.*;
 import java.util.Properties;
 
-import pe.algoritmo.vidarte.Main;
-
 /**
  * Clase CSVConfig, singleton que se encarga de la configuración de los archivos CSV.
  * 
@@ -39,14 +37,13 @@ public class CSVConfig {
     /**
      * Método para cargar la configuración de los archivos CSV.
      * 
-     * Este método carga la configuración de los archivos CSV a partir de un archivo de configuración.
+     * Este método carga la configuración de los archivos CSV a partir de un InputStream.
      * 
-     * @param config Ruta del archivo de configuración.
+     * @param inputStream InputStream del archivo de configuración.
      */
-    public void loadConfig(String config) {
-        String configPath = Main.class.getClassLoader().getResource(config).getPath();
-        try (InputStream ruta = new FileInputStream(configPath)) {
-            propiedades.load(ruta);
+    public void loadConfig(InputStream inputStream) {
+        try {
+            propiedades.load(inputStream);
         } catch (IOException e) {
             throw new RuntimeException("Error al cargar el archivo de configuración", e);
         }

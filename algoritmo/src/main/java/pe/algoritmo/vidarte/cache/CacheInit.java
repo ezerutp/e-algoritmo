@@ -1,5 +1,8 @@
 package pe.algoritmo.vidarte.cache;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import pe.algoritmo.vidarte.csv.CSVConfig;
 
 /**
@@ -40,10 +43,13 @@ public class CacheInit {
     public void init(String configPath) {
         
         // Cargar configuración
-        CSVConfig.getInstance().loadConfig(configPath);
-        
-        // Inicializar caches
-        MesaCache.getInstance();
-        VotacionCache.getInstance();
+        try {
+            FileInputStream fileInputStream = new FileInputStream(configPath);
+            CSVConfig.getInstance().loadConfig(fileInputStream);
+            MesaCache.getInstance();
+            VotacionCache.getInstance();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException("Archivo de configuración no encontrado", e);
+        }
     }
 } 
