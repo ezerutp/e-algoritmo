@@ -60,6 +60,19 @@ public class Lista<T> implements Iterable<T> {
         return length;
     }
 
+    // Método para establecer un valor en una posición específica
+    public void set(int index, T data) {
+        if (index < 0 || index >= length) {
+            throw new IndexOutOfBoundsException("Índice " + index + " está fuera de los límites");
+        }
+
+        Nodo actual = head;
+        for (int i = 0; i < index; i++) {
+            actual = actual.next;
+        }
+        actual.data = data;
+    }
+
     // Funcion que devuelve el elemento de la lista
     public T get(int index) {
         if (index < 0 || index >= length) {
