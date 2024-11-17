@@ -5,8 +5,26 @@ import pe.algoritmo.vidarte.models.Eleccion;
 import pe.algoritmo.vidarte.models.Mesa;
 import pe.algoritmo.vidarte.models.Votacion;
 
+/**
+ * Clase Utilidades que proporciona métodos útiles para la conversión de modelos a formato CSV.
+ * 
+ * Esta clase ofrece un método estático para convertir objetos de los modelos Distrito, Eleccion, Mesa y Votacion
+ * a una cadena de texto en formato CSV. El formato CSV generado incluye los campos relevantes de cada modelo.
+ * 
+ * @author Vidarte
+ */
 public class Utilidades {
 
+    /**
+     * Convierte un objeto de un modelo específico a una cadena de texto en formato CSV.
+     * 
+     * Este método analiza el tipo del objeto modelo pasado como parámetro y lo convierte a una cadena de texto
+     * en formato CSV según el modelo correspondiente. Los modelos soportados son Distrito, Eleccion, Mesa y Votacion.
+     * 
+     * @param <T> El tipo del modelo a convertir.
+     * @param modelo El objeto del modelo a convertir a CSV.
+     * @return Una cadena de texto en formato CSV representando el objeto modelo.
+     */
     public static <T> String toCSV(T modelo){
         if (modelo instanceof Distrito) {
             Distrito distrito = (Distrito) modelo;
