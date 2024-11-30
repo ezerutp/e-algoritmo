@@ -91,6 +91,10 @@ public class VotacionCache {
      * @return La lista de votaciones.
      */
     public Lista<Votacion> getVotaciones(){
+        votaciones = new Lista<>();
+        for (Votacion v : votacionCache){
+            votaciones.agregarAlFinal(v);
+        }
         return votaciones;
     }
 

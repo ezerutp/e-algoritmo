@@ -1,3 +1,4 @@
+C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\Abstract\AbstractHandler.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\cache\CacheInit.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\cache\MesaCache.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\cache\VotacionCache.java
@@ -8,6 +9,7 @@ C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\csv\CSV.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\csv\CSVConfig.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\interfaces\CSVUtil.java
+C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\interfaces\Handler.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\Main.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\models\Distrito.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\models\Eleccion.java
@@ -17,8 +19,20 @@ C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\tables\DistritoTableModel.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\tables\EleccionTableModel.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\tables\MesaTableModel.java
+C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\tables\VotacionDistritoTableModel.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\tables\VotacionTableModel.java
+C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\utils\CampoVacioHandler.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\utils\Diccionario\Diccionario.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\utils\Lista\Lista.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\utils\Ordenamiento.java
 C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\utils\Utilidades.java
+C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\utils\ValidadorCampos.java
+C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\views\distritos\addDistrito.java
+C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\views\distritos\distritos.java
+C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\views\elecciones\addEleccion.java
+C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\views\elecciones\elecciones.java
+C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\views\Menu.java
+C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\views\mesas\addMesas.java
+C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\views\mesas\mesas.java
+C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\views\votaciones\addVotacion.java
+C:\Users\VIDARTE\Repos\e-algoritmo\algoritmo\src\main\java\pe\algoritmo\vidarte\views\votaciones\votaciones.java

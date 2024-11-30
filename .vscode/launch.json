@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "addEleccion",
+            "request": "launch",
+            "mainClass": "pe.algoritmo.vidarte.views.elecciones.addEleccion",
+            "projectName": "algoritmo"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

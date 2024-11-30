@@ -17,6 +17,15 @@ public class MesaController {
         return MesaCache.getInstance().getMesas();
     }
 
+    public Lista<String> getNombresMesas(){
+        Lista<Mesa> lista = getMesas();
+        Lista<String> nombres = new Lista<>();
+        for (Mesa m : lista){
+            nombres.agregarAlFinal(m.getDistrito().getNombre() + " - " + m.getSeccion() + " - " + m.getTipoMesa());
+        }
+        return nombres;
+    }
+
     public boolean registrar(Mesa m){
         m.setId(MesaCache.getInstance().nextIndex());
         if (this.csv.registrar(m)){

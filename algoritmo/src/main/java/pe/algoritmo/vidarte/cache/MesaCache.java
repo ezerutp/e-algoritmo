@@ -90,6 +90,10 @@ public class MesaCache {
      * @return La lista de mesas.
      */
     public Lista<Mesa> getMesas(){
+        mesas = new Lista<>();
+        for (Mesa mesa : mesasCache) {
+            mesas.agregarAlFinal(mesa);
+        }
         return mesas;
     }
 

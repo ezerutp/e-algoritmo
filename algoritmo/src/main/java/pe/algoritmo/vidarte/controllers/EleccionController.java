@@ -22,6 +22,15 @@ public class EleccionController {
         return this.csv.leerCSV();
     }
 
+    public Lista<String> getNombresElecciones(){
+        Lista<Eleccion> lista = getElecciones();
+        Lista<String> nombres = new Lista<>();
+        for (Eleccion e : lista){
+            nombres.agregarAlFinal(e.getTitulo() + " - " + e.getAnio());
+        }
+        return nombres;
+    }
+
     public Eleccion getEleccionById(int id){
         Lista<Eleccion> lista = getElecciones();
         for (Eleccion e : lista){

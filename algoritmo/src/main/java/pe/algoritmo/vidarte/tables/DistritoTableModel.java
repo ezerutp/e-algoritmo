@@ -33,8 +33,6 @@ public class DistritoTableModel extends AbstractTableModel {
         Distrito d = modelo.get(rowIndex);
         switch (columnIndex) {
             case 0:
-                return d.getId();
-            case 1:
                 return d.getNombre();
             default:
                 return null;
