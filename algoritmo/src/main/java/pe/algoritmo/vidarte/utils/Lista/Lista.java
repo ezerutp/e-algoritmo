@@ -123,6 +123,28 @@ public class Lista<T> implements Iterable<T> {
         return actual.data;
     }
 
+    public void remover(T data) {
+        if (head == null) {
+            return;
+        }
+
+        if (head.data.equals(data)) {
+            head = head.next;
+            length--;
+            return;
+        }
+
+        Nodo actual = head;
+        while (actual.next != null) {
+            if (actual.next.data.equals(data)) {
+                actual.next = actual.next.next;
+                length--;
+                return;
+            }
+            actual = actual.next;
+        }
+    }   
+
     /**
      * Implementación de la interfaz Iterable para iterar sobre la lista.
      * 

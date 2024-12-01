@@ -1,6 +1,5 @@
 package pe.algoritmo.vidarte;
 
-import pe.algoritmo.vidarte.views.votaciones.votaciones;
 import pe.algoritmo.vidarte.cache.CacheInit;
 import pe.algoritmo.vidarte.views.*;
 

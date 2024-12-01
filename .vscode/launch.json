@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "votaciones",
+            "request": "launch",
+            "mainClass": "pe.algoritmo.vidarte.views.votaciones.votaciones",
+            "projectName": "algoritmo"
+        },
+        {
+            "type": "java",
+            "name": "Menu",
+            "request": "launch",
+            "mainClass": "pe.algoritmo.vidarte.views.Menu",
+            "projectName": "algoritmo"
+        },
+        {
+            "type": "java",
             "name": "addEleccion",
             "request": "launch",
             "mainClass": "pe.algoritmo.vidarte.views.elecciones.addEleccion",

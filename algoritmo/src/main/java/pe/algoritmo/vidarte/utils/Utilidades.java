@@ -3,8 +3,6 @@ package pe.algoritmo.vidarte.utils;
 import javax.swing.JTextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.List;
 
 import pe.algoritmo.vidarte.models.Distrito;
 import pe.algoritmo.vidarte.models.Eleccion;
@@ -127,6 +125,7 @@ public class Utilidades {
         });
     }
 
+    //  Funcion para filtrar votaciones
     public static Lista<Votacion> listafiltrada(Lista<Votacion> lista, int eleccion, int distrito, int seccion) {
         Lista<Votacion> listaFiltrada = new Lista<>();
         for (Votacion votacion : lista) {
@@ -134,6 +133,17 @@ public class Utilidades {
                     && (distrito == -1 || votacion.getMesa().getDistrito().getId() == distrito)
                     && (seccion == -1 || votacion.getMesa().getSeccion() == seccion)) {
                 listaFiltrada.agregarAlFinal(votacion);
+            }
+        }
+        return listaFiltrada;
+    }
+
+    // Funcion para buscar un distrito por su nombre en una lista de distritos
+    public static Lista<Distrito> buscarDistrito(Lista<Distrito> lista, String nombre) {
+        Lista<Distrito> listaFiltrada = new Lista<>();
+        for (Distrito distrito : lista) {
+            if (distrito.getNombre().toLowerCase().contains(nombre.toLowerCase())) {
+                listaFiltrada.agregarAlFinal(distrito);
             }
         }
         return listaFiltrada;
